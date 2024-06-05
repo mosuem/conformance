@@ -42,8 +42,9 @@ void main() {
         throw 'ERRORSTART $line ERROREND';
       }
 
-      final testType = TestTypes.values
-          .firstWhere((type) => type.name == decoded['test_type']);
+      final testTypeStr = decoded['test_type'];
+      final testType =
+          TestTypes.values.firstWhere((type) => type.name == testTypeStr);
       Object result;
       switch (testType) {
         case TestTypes.collation_short:
@@ -60,7 +61,7 @@ void main() {
         case TestTypes.number_fmt:
         // TODO: Handle this case.
         default:
-          throw UnsupportedError('');
+          throw UnsupportedError('Unknown test type $testTypeStr');
       }
 
       final outputLine = {'label': decoded['label'], 'result': result};
