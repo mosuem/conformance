@@ -5,7 +5,7 @@ import 'dart:io';
 
 import 'package:intl4x/collation.dart';
 import 'package:intl4x/intl4x.dart';
-
+import 'numberformat.dart';
 import 'version.dart';
 
 Map<String, List<String>> supportedTests = {
@@ -52,6 +52,7 @@ void main() {
           result = collation(decoded);
           break;
         case TestTypes.decimal_fmt:
+          result = testDecimalFormat(line);
         case TestTypes.datetime_fmt:
         // TODO: Handle this case.
         case TestTypes.display_names:
