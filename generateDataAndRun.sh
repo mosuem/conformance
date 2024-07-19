@@ -95,7 +95,7 @@ then
     echo "dart pub get"
     dart pub get
     echo "dart run bin/make_runnable_by_node.dart"
-    dart run bin/make_runnable_by_node.dart
+    dart  --enable-experiment=native-assets run bin/make_runnable_by_node.dart
     popd
 fi
 
